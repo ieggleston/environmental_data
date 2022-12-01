@@ -1,0 +1,22 @@
+"0","fligner.test(
+  pine ~ treatment,
+  data = veg2)
+"
+"1","
+"
+"1","	Fligner-Killeen test of homogeneity of variances"
+"1","
+"
+"1","
+"
+"1","data:  "
+"1",""
+"1","pine by treatment"
+"1",""
+"1","
+"
+"1","Fligner-Killeen:med chi-squared = 8.3686, df = 1, p-value = 0.003818"
+"1","
+"
+"1","
+"

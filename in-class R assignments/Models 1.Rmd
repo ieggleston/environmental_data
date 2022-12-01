@@ -1,0 +1,54 @@
+---
+title: "Model Coefficients"
+output: html_document
+date: "2022-11-08"
+---
+
+```{r}
+data(iris)
+head(iris)
+```
+
+```{r}
+fit_species = 
+  lm(
+    Sepal.Length ~ Species,
+    data = iris)
+summary(fit_species)
+```
+```{r}
+setosa_dat = subset(iris, Species == "setosa")
+mean(setosa_dat$Sepal.Length)
+
+```
+
+
+```{r}
+summary(fit_species)
+```
+
+```{r}
+plot(
+  Petal.Width ~ Petal.Length,
+  data = iris,
+  xlab = "Petal Length (cm)",
+  ylab = "Petal Width (cm)")
+```
+
+```{r}
+fit_petals = 
+  lm(
+    Petal.Width ~ Petal.Length,
+    data = iris)
+summary(fit_petals)
+```
+
+```{r}
+boxplot(Sepal.Length ~ Species, data = iris, main = "Boxplot of Sepal Length dependent on Species")
+```
+
+```{r}
+shapiro.test(residuals(fit_species))
+
+```
+

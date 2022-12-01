@@ -1,0 +1,8 @@
+"0","require(palmerpenguins)"
+"2","Loading required package: palmerpenguins
+"
+"0","fit_fl_sp = "
+"0","  lm("
+"0","    formula = flipper_length_mm ~ species,"
+"0","    data = penguins)"
+"0",""

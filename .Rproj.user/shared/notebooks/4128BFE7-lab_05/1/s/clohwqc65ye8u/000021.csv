@@ -1,0 +1,8 @@
+"0",""
+"0",""
+"0","y_pred_ricker = ricker_fun(dat_dispersal$dist.class, 0.007, 0.004)"
+"0","dat_dispersal$y_pred_ricker = y_pred_ricker"
+"0","resids_ricker = dat_dispersal$y_pred_ricker - dat_dispersal$disp.rate.ftb"
+"0","dat_dispersal$resids_ricker = resids_ricker"
+"0","hist(dat_dispersal$resids_ricker, main = ""Histogram for Ricker Residuals"")"
+"0",""

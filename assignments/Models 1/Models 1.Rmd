@@ -1,0 +1,66 @@
+---
+title: "Models 1"
+output: html_document
+date: "2022-11-12"
+---
+##Calling catrate
+
+```{r}
+require(here)
+catrate = read.csv(here("data", "catrate.csv"))
+catrate
+head(catrate)
+summary(catrate)
+hist(catrate$cat.rate, main = "Frequency of Salamander Reproduction Catastrophe Rates", xlab = "Reproduction Catastrophes")
+shapiro.test(catrate$cat.rate)
+mean(catrate$cat.rate)
+t.test(catrate$cat.rate, mu = 0.2857143)
+wilcox.test(catrate$cat.rate, mu = 2/7)
+```
+
+##penguins
+```{r}
+require(palmerpenguins)
+penguin_dat = droplevels(subset(penguins, species != "Gentoo"))
+summary(penguin_dat)
+```
+
+##boxplot
+```{r}
+boxplot(
+  flipper_length_mm ~ species, 
+  data = penguin_dat,
+  ylab = "Flipper Length (mm)")
+```
+
+
+##extracting adelie
+```{r}
+dat_adelie = subset(penguin_dat, species == "Adelie")
+dat_chinstrap = subset(penguin_dat, species == "Chinstrap")
+
+shapiro.test(dat_adelie$flipper_length_mm)
+shapiro.test(dat_chinstrap$flipper_length_mm)
+
+```
+
+##histrogram
+```{r}
+png(
+  filename = here("Models_1_hist.png"),
+  width = 1600, height = 800,
+  res=180
+)
+par(mfrow = c(1,2))
+hist(dat_adelie$flipper_length_mm, main = "Adelie Flipper Length Frequency", xlab = "Flipper Length (mm)")
+hist(dat_chinstrap$flipper_length_mm, main = "Chinstrap Flipper Length Frequency", xlab = "Flipper Length (mm)")
+
+```
+
+##t.test
+```{r}
+adelie_flip = na.omit(dat_adelie$flipper_length_mm)
+chin_flip = dat_chinstrap$flipper_length_mm
+t.test(adelie_flip, chin_flip)
+```
+

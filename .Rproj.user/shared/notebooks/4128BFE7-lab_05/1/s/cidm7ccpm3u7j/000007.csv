@@ -1,0 +1,4 @@
+"0","plot(y_observed ~ x_sim); abline(fit_1)
+plot(y_observed_2 ~ x_sim); abline(fit_2)
+"
+"0","plot(y_observed_3 ~ x_sim); abline(fit_3)"

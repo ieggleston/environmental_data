@@ -1,0 +1,14 @@
+"0","here
+"
+"1","function (...) 
+"
+"1","{
+"
+"1","    .root_env$root$f(...)
+"
+"1","}
+"
+"1","<bytecode: 0x000002219692e3e0>
+"
+"1","<environment: namespace:here>
+"

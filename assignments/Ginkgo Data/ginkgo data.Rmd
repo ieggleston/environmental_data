@@ -1,0 +1,29 @@
+---
+title: "Ginkgo Data"
+output: html_document
+date: "2022-11-15"
+---
+
+##calling ginkgo data
+```{r}
+require(here)
+
+ginkgo_dat = read.csv(here("data", "ginkgo_data_2022.csv"))
+ginkgo_dat
+
+gink_seeds = droplevels(
+  subset(
+    ginkgo_dat, select = c("site_id", "seeds_present")
+  ))
+gink_seeds
+gink_sites = unique(gink_seeds)
+gink_sites
+length(gink_sites)
+```
+
+##boxplot
+```{r}
+
+boxplot(petiole_length ~ seeds_present, data = ginkgo_dat)
+```
+

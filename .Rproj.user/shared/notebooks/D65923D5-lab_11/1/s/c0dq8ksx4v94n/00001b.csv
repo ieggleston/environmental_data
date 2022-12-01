@@ -1,0 +1,4 @@
+"0","linear = function(x, y_int , slope)"
+"0","{"
+"0","  return( y_int + (slope * x))"
+"0","}"

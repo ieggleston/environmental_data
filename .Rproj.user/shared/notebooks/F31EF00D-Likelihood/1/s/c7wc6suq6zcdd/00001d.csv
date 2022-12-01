@@ -1,0 +1,6 @@
+"0","sum(log(dnorm(flip_length, flip_mean, flip_sd)))
+"
+"1","[1]"
+"1"," -1388.839"
+"1","
+"

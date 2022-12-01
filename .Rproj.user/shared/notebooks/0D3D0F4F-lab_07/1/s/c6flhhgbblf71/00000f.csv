@@ -1,0 +1,12 @@
+"0","rm(list = ls())"
+"0",""
+"0","# Re-read my data:"
+"0","moths = read.csv(here(""data"", ""moths.csv""))"
+"0",""
+"0","rarefaction_sampler = function(input_dat, n_iterations)"
+"0","{"
+"0","  ... paste your corrected code here ..."
+"2","Error: unexpected symbol in:
+""{
+  ... paste""
+"

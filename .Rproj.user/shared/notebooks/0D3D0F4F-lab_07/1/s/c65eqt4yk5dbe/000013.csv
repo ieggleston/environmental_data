@@ -1,0 +1,6 @@
+"0",""
+"0","n = nrow(moth_dat) #number of rows or sample observations"
+"0","m = 100 #number of bootstrap iterations"
+"0","moth_result = matrix("
+"0","  nrow = m,"
+"0","  ncol = n)"

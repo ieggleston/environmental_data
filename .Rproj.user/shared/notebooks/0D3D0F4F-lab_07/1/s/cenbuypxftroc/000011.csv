@@ -1,0 +1,5 @@
+"0","rarefact = rarefaction_sampler(moth_dat, n_iterations)
+"
+"2","Error in matrix(nrow = n_iterations, ncol = n_input_rows) : 
+  object 'n_iterations' not found
+"

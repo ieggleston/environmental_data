@@ -1,0 +1,2 @@
+"0","boxplot(body_mass_g ~ sex * species, xlab = NULL, data = penguins, main = ""Doubly-Conditional Boxplot"", las =2,"
+"0","        names = c(""Female\n Adelie"", ""Male\n Adelie"", ""Female\n Chinstrap"", ""Male\n Chinstrap"", ""Female\n Gentoo"", ""Male\n Gentoo"") )"

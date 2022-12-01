@@ -1,0 +1,13 @@
+"0","require(here)"
+"0","veg = read.csv(here(""data"", ""vegdata.csv""))"
+"0","require(palmerpenguins)"
+"0",""
+"0","require(simpleboot)"
+"2","Loading required package: simpleboot
+"
+"2","Warning: package ‘simpleboot’ was built under R version 4.2.2"
+"2","Simple Bootstrap Routines (1.1-7)
+"
+"0","require(boot)"
+"2","Loading required package: boot
+"

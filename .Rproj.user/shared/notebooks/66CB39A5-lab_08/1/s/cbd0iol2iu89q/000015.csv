@@ -1,0 +1,4 @@
+"0","boxplot(pine ~ treatment, dat = veg)
+"
+"2","Error in eval(m$data, parent.frame()) : object 'veg' not found
+"

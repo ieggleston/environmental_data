@@ -1,0 +1,5 @@
+"0","plot("
+"0","  ecdf(disp$disp.rate.eb),"
+"0","  verticals=TRUE,"
+"0","  lty=3,"
+"0","  add=TRUE)"

@@ -1,0 +1,2 @@
+"0","dat_tree = droplevels(subset(veg, treatment %in% c(""control"", ""clipped"")))"
+"0","boxplot(pine ~ treatment, dat = dat_tree)"

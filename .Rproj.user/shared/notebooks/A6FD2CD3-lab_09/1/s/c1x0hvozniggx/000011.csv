@@ -1,0 +1,2 @@
+"0","prob_fail = table(dat_fl$ProbabilityofFailure)"
+"0","fail_stand = table(dat_fl$Failure_Standardized)"

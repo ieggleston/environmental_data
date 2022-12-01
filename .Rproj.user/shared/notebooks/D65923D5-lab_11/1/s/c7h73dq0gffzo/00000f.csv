@@ -1,0 +1,5 @@
+"0","plot("
+"0","  birdhab$ls, birdhab$BRCR, "
+"0","  xlab = ""late-successional forest extent"","
+"0","  ylab = ""Brown Creeper abundance"","
+"0","  pch = 19)"

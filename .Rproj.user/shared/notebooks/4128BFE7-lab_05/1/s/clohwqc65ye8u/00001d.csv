@@ -1,0 +1,7 @@
+"0","par(mfrow = c(1,3))"
+"0",""
+"0","y_pred_linear = line_point_slope(dat_dispersal$dist.class, 1500, 0.01, -0.0002)"
+"0","dat_dispersal$y_pred_linear = y_pred_linear"
+"0","resids_linear = dat_dispersal$y_pred_linear - dat_dispersal$disp.rate.ftb"
+"0","dat_dispersal$resids_linear = resids_linear"
+"0","hist(dat_dispersal$resids_linear, main = ""Histogram for Linear Residuals"")"

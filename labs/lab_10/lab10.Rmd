@@ -1,0 +1,108 @@
+---
+title: "Lab_10"
+output: html_document
+date: "2022-11-16"
+---
+
+```{r}
+require(here)
+```
+
+
+##ANOVA by hand
+```{r}
+rm(list = ls())
+
+rope = read.csv(here("data", "rope.csv"))
+rope
+rope$rope.type = factor(rope$rope.type)
+levels(rope$rope.type)
+n_obs = length(rope$rope.type)
+n_groups = length(levels(rope$rope.type))
+
+```
+
+```{r}
+ss_tot = sum((rope$p.cut - mean(rope$p.cut))^2)
+df_tot = n_obs - 1
+```
+
+
+```{r}
+agg_resids = aggregate(
+  x = rope$p.cut,
+  by = list(rope$rope.type),
+  FUN = function(x) (x - mean(x)))
+str(agg_resids)
+```
+
+##separating out the rope types
+```{r}
+agg_sum_sq_resids = aggregate(
+  x = rope$p.cut,
+  by = list(rope$rope.type),
+  FUN = function(x) (sum((x - mean(x))^2)))
+agg_sum_sq_resids
+str(agg_sum_sq_resids)
+```
+
+
+```{r}
+ss_within = sum(agg_sum_sq_resids$x)
+df_within = n_obs - n_groups
+
+ss_among = ss_tot - ss_within
+df_among = n_groups - 1
+
+ms_within = ss_within / (n_obs - n_groups)
+ms_among  =  ss_among / (n_groups - 1)
+
+f_ratio = ms_among / ms_within
+f_pval = pf(f_ratio, df_among, df_within, lower.tail = FALSE)
+
+```
+##complete ANOVA table Question 1
+```{r}
+rm(list = ls())
+
+rope = read.csv(here("data", "rope.csv"))
+rope$rope.type = factor(rope$rope.type)
+
+n_obs = length(rope$rope.type)
+n_groups = length(levels(rope$rope.type))
+
+ss_tot = sum((rope$p.cut - mean(rope$p.cut))^2)
+df_tot = n_obs - 1
+
+agg_sum_sq_resids = aggregate(
+  x = rope$p.cut,
+  by = list(rope$rope.type),
+  FUN = function(x) (sum((x - mean(x))^2)))
+ss_within = sum(agg_sum_sq_resids$x)
+df_within = n_obs - n_groups
+
+ss_among = ss_tot - ss_within
+df_among = n_groups - 1
+
+ms_within = ss_within / (n_obs - n_groups)
+ms_among  =  ss_among / (n_groups - 1)
+
+f_ratio = ms_among / ms_within
+f_pval = pf(f_ratio, df_among, df_within, lower.tail = FALSE)
+```
+
+```{r}
+bartlett.test(p.cut ~ rope.type, data = rope)
+```
+
+
+```{r}
+fit_1 = lm(p.cut ~ rope.type, data = rope)
+summary(fit_1)
+
+anova(fit_1)
+rope_resids = residuals(fit_1)
+shapiro.test(rope_resids)
+sapply(agg_resids$x, FUN = shapiro.test)
+```
+

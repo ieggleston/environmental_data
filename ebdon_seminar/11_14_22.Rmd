@@ -1,0 +1,43 @@
+---
+title: "Ebdon's data"
+output: html_document
+date: "2022-11-14"
+---
+##call data
+```{r}
+require(here)
+et_dat = read.csv(here("data", "ET_rate.csv"))
+et_dat
+```
+##Block
+```{r}
+et_dat$BLOCK = factor(et_dat$BLOCK)
+boxplot(ET ~ BLOCK, data = et_dat)
+block_model = lm(ET ~ BLOCK, data = et_dat)
+summary(block_model)
+anova(block_model)
+```
+
+
+
+##Species
+```{r}
+et_dat$Species = factor(et_dat$Species)
+boxplot(ET ~ Species, data = et_dat)
+species_model = lm(ET ~ Species, data = et_dat)
+summary(species_model)
+anova(species_model)
+```
+
+##Nitrogen
+```{r}
+nitrogen_model = lm(ET ~ N, data = et_dat)
+anova(nitrogen_model)
+```
+
+##HOC
+```{r}
+hoc_model = lm(ET ~ HOC, data = et_dat)
+anova(hoc_model)
+```
+

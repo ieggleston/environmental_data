@@ -1,0 +1,1 @@
+{"frames":[{"func":"table(dat_tree$treatment)","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0}],"message":"Error in table(dat_tree$treatment) : object 'dat_tree' not found\n"}

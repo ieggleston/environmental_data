@@ -1,0 +1,7 @@
+"0",""
+"0",""
+"0","y_pred_exp = exp_fun(dat_dispersal$dist.class, 0.8, 0.0025)"
+"0","dat_dispersal$y_pred_exp = y_pred_exp"
+"0","resids_exp = dat_dispersal$y_pred_exp - dat_dispersal$disp.rate.ftb"
+"0","dat_dispersal$resids_exp = resids_exp"
+"0","hist(dat_dispersal$resids_exp, main = ""Histogram for Exponential Residuals"")"

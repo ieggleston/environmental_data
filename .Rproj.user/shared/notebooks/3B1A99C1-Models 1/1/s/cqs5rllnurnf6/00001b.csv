@@ -1,0 +1,2 @@
+"0","hist(dat_chinstrap$flipper_length_mm, main = ""Chinstrap Flipper Length Frequency"", xlab = ""Flipper Length (mm)"")"
+"0",""

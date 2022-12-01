@@ -1,0 +1,38 @@
+---
+title: "Frequentist Concepts"
+output: html_document
+date: "2022-10-18"
+---
+
+```{r}
+1- pnorm(7.5, mean = 10, sd = 3)
+```
+##question 1
+```{r}
+dbinom(3, 4, 0.75)
+```
+
+## Question 2
+```{r}
+pbinom(3, 4, 0.75)
+```
+## Question 3
+```{r}
+1 - pbinom(3, 5, 0.75)
+```
+## Question 4
+```{r}
+?pnorm
+pnorm(1.2, mean = 2, sd = 2)
+```
+##Question 5
+```{r}
+1 - pnorm(1.2, mean = 2, sd = 2)
+```
+## QUestion 6
+```{r}
+pnorm(3.2, mean = 2, sd = 2) - pnorm(1.2, mean = 2, sd = 2)
+```
+
+
+

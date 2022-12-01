@@ -1,0 +1,32 @@
+---
+
+title: "lab10_penguins"
+output: html_document
+date: "2022-11-16"
+---
+
+```{r}
+require(palmerpenguins)
+pen_fem = subset(penguins, sex == "female")
+boxplot(body_mass_g ~ species, data = pen_fem, main = "Female Penguin Body Mass by Species")
+```
+
+```{r}
+bartlett.test(body_mass_g ~ species, data = pen_fem)
+```
+
+```{r}
+pen_lm = lm(body_mass_g ~ species, data = pen_fem)
+pen_lm
+pen_resids = residuals(pen_lm)
+pen_resids
+sapply(pen_resids$x, FUN = shapiro.test)
+shapiro.test(pen_resids)
+```
+
+##TUkey test
+```{r}
+pen_hsd = TukeyHSD(aov(pen_lm))
+round(pen_hsd$species, digits = 4)
+```
+

@@ -1,0 +1,65 @@
+---
+title: "Confidence Intervals"
+output: html_document
+date: "2022-10-20"
+---
+##Confidence Intervals in class assignment
+##Question 1
+```{r}
+qnorm(c(.05,.95))
+
+```
+
+##Question 2
+```{r}
+qt(c(.025,.975), df = 10)
+```
+
+##Question 3
+```{r}
+#create an empty list to hold all degrees of freedom that meet criteria
+list =list()
+#find the lower critical value of a normal distribution with .025%, round to one decimal place
+v = round(min(qnorm(c(.025,.95))),1)
+#loop through all values of t-distribution values to find where they’re equal 
+for (i in 1:1000) {
+if(round(qt(.025, df=i),1)==v){
+list <- append(list,i)
+}
+next
+}
+print(list[1])
+
+```
+
+##Question 4
+```{r}
+
+list =list()
+v = round(min(qnorm(c(.025,.95))),2)
+for (i in 1:1000) {
+if(round(qt(.025, df=i),2)==v){
+list <- append(list,i)
+}
+next
+}
+print(list[1])
+
+```
+
+##Question 5
+```{r}
+qt(c(0.025, 0.975), df = 49)
+```
+##Question 6
+```{r}
+ssd = 3.14
+sse = ssd/sqrt(50)
+ci_radius = sse * 2.009575
+mean = 10
+ci_upper = mean + ci_radius
+ci_lower = mean - ci_radius
+ci_upper
+ci_lower
+```
+

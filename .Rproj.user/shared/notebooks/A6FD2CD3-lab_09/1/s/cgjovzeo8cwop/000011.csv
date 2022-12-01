@@ -1,0 +1,3 @@
+"0","require(datarium)"
+"0","data(""mice2"")"
+"0","head(mice2)"

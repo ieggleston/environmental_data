@@ -1,0 +1,4 @@
+"0","fit_1 = lm(BRCR ~ ls, data = birdhab)"
+"0","{plot(BRCR ~ ls, data = birdhab)"
+"0","abline(fit_1)}"
+"0",""

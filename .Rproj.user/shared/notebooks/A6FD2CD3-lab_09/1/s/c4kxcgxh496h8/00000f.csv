@@ -1,0 +1,4 @@
+"0","plot("
+"0","  ecdf(disp$disp.rate.ftb),"
+"0","  verticals=TRUE,"
+"0","  main = ""Mike's Plot of Marbled Salamanders\nFirst-Time Breeders: ECDF"")"

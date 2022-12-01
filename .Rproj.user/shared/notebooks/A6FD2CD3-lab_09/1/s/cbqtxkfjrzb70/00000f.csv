@@ -1,0 +1,8 @@
+"0","plot("
+"0","  disp.rate.ftb ~ disp.rate.eb,"
+"0","  data = disp,"
+"0","  main = ""Marbled Salamander Dispersal Rates"","
+"0","  xlab = ""Dispersal Rate\nFirst Time Breeders"","
+"0","  ylab = ""Dispersal Rate\nExperienced Breeders"","
+"0","  pch = 21, col = 1, bg = ""steelblue"""
+"0",")"

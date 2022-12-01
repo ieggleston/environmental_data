@@ -1,0 +1,48 @@
+---
+title: "Reading Questions Week 6"
+output: html_document
+date: "2022-10-17"
+---
+
+```{r}
+rm(list = ls())
+
+pol_n_predation = 26
+pol_n_no_predation = 184
+pol_n_total = 210
+pol_predation_rate = 0.124
+
+psd_n_predation = 25
+psd_n_no_predation = 706
+psd_n_total = 731
+psd_predation_rate = 0.034
+print(
+  paste0(
+    "The seed predation rate for Polyscias fulva is: ",
+    round(pol_predation_rate, digits = 3))) 
+
+print(
+  paste0(
+    "The seed predation rate for Pseudospondias microcarpa is: ",
+    round(psd_predation_rate, digits = 3)))
+
+
+```
+
+```{r}
+data = matrix(
+  c(pol_n_predation, pol_n_no_predation, pol_n_total, pol_predation_rate, psd_n_predation, psd_n_no_predation, psd_n_total, psd_predation_rate),
+  ncol = 5, nrow = 2, byrow = TRUE
+  )
+colnames(data) = c("species", "Any taken", "None taken", "N", "Predation Rate")
+rownames(data) = c("Polyscias fulva (pol)", "Pseudospondias microcarpa (psd)")
+final = as.table(data)
+final
+
+```
+
+```{r}
+seed_predation_proportions = (pol_n_predation + psd_n_predation) / (pol_n_total + psd_n_total)
+seed_predation_proportions
+```
+

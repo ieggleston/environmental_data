@@ -1,0 +1,6 @@
+"0",""
+"0","plot("
+"0","  density(result_mc),"
+"0","  main = ""Ian's Null and Alternative Distribution Density Plot"","
+"0","  xlab = ""Slope Coefficient"", lty = 2"
+"0","  )"

@@ -1,0 +1,6 @@
+"0","setosa_dat = subset(iris, Species == ""setosa"")"
+"0","mean(setosa_dat$Sepal.Length)"
+"1","[1]"
+"1"," 5.006"
+"1","
+"

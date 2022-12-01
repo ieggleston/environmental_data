@@ -1,0 +1,3 @@
+"0","int_obs = fit_1_coefs[1]"
+"0","slope_obs = fit_1_coefs[2]"
+"0","sd_obs = fit_1_summary$sigma"

@@ -1,0 +1,25 @@
+---
+title: "Data Analysis with Ebdon"
+output: html_document
+date: "2022-10-13"
+---
+
+```{r}
+install.packages(c("ggplot2", "ggpubr", "tidyverse", "broom", "AICcmodavg"))
+```
+```{r}
+require(ggplot2)
+require(ggpubr)
+require(tidyverse)
+require(broom)
+require(AICcmodavg)
+require(here)
+```
+
+```{r}
+here
+ebdon_data = read.csv(here("data", "fert.csv"))
+
+```
+
+

@@ -1,0 +1,4 @@
+"0","table(dat_tree$treatment)
+"
+"2","Error in table(dat_tree$treatment) : object 'dat_tree' not found
+"

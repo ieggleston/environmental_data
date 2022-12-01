@@ -1,0 +1,5 @@
+"0",""
+"0","dat_pen = subset(penguins, species != ""Chinstrap"")"
+"0","boxplot("
+"0","  flipper_length_mm ~ species, data = dat_pen,"
+"0","  ylab = ""Flipper length (mm)"")"

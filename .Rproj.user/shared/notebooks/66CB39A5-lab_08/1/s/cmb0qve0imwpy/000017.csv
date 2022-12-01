@@ -1,0 +1,5 @@
+"0","plot("
+"0","  b.sidi ~ s.sidi, data = dat_all,"
+"0","  main = ""Simpson's diversity indices"","
+"0","  xlab = ""Vegetation cover diversity"","
+"0","  ylab = ""Bird diversity"")"

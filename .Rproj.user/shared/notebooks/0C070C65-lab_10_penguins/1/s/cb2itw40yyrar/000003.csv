@@ -1,0 +1,5 @@
+"0","require(palmerpenguins)"
+"2","Loading required package: palmerpenguins
+"
+"0","pen_fem = subset(penguins, sex == ""female"")"
+"0","boxplot(body_mass_g ~ species, data = pen_fem, main = ""Female Penguin Body Mass by Species"")"

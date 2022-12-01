@@ -1,0 +1,2 @@
+"0","moth_dat = moths[,-1]"
+"0","head(moth_dat)"

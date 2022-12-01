@@ -1,0 +1,31 @@
+---
+title: "R Markdown Documents-Part 1"
+subtite: "Analysis of Environmental Data"
+author: "Ian Eggleston"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: yeti
+---
+
+
+
+Introduction
+============
+**My name is Ian Eggleston and I am a masters student in** *Plant and Soil Sciences*
+
+Concepts List
+=============
+* Basic R
+
+* How to display my data in alternative formats
+
+* How to create basic models and where to find resources for more complicated ones
+
+
+Course List
+===========
+1. Polymer Science and Engineering
+2. Intro to Mycology
+3. Advanced Soil Chemistry

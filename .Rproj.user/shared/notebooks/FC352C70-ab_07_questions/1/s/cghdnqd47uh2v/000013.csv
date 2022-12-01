@@ -1,0 +1,26 @@
+"0","print(myboot)
+"
+"1","
+ORDINARY NONPARAMETRIC BOOTSTRAP
+
+"
+"1","
+Call:
+"
+"1","boot(data = dat_pen$bill_length_mm, statistic = boot_mean, R = 10000)
+"
+"1","
+
+Bootstrap Statistics :
+"
+"1","   "
+"1"," original"
+"1","       bias  "
+"1","  std. error"
+"1","
+t1*"
+"1"," 41.90959"
+"1"," -0.007797758"
+"1","   0.3688558"
+"1","
+"

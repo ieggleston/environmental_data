@@ -1,0 +1,8 @@
+"0","dat_hab = read.csv(here(""data"", ""hab.sub.csv""))"
+"0","dat_bird = read.csv(here(""data"", ""bird.sub.csv""))"
+"0","dat_all = merge("
+"0","  dat_bird, "
+"0","  dat_hab,"
+"0","  by = c(""basin"", ""sub""))"
+"0",""
+"0","head(dat_all[, c(""b.sidi"", ""s.sidi"")])"

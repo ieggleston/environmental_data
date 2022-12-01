@@ -1,0 +1,40 @@
+"0","require(ggplot2)"
+"2","Loading required package: ggplot2
+"
+"2","Error: package or namespace load failed for ‘ggplot2’ in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+ namespace ‘rlang’ 1.0.5 is already loaded, but >= 1.0.6 is required
+"
+"0","require(ggpubr)"
+"2","Loading required package: ggpubr
+"
+"2","Loading required package: ggplot2
+"
+"2","Error: package or namespace load failed for ‘ggplot2’ in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+ namespace ‘rlang’ 1.0.5 is already loaded, but >= 1.0.6 is required
+"
+"2","Failed with error:  "
+"2",""
+"2","‘package ‘ggplot2’ could not be loaded’"
+"2",""
+"2","
+"
+"0","require(tidyverse)"
+"2","Loading required package: tidyverse
+"
+"2","Error: package or namespace load failed for ‘tidyverse’ in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+ namespace ‘rlang’ 1.0.5 is already loaded, but >= 1.0.6 is required
+"
+"0","require(broom)"
+"2","Loading required package: broom
+"
+"2","Error: package or namespace load failed for ‘broom’ in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+ namespace ‘rlang’ 1.0.5 is already loaded, but >= 1.0.6 is required
+"
+"0","require(AICcmodavg)"
+"2","Loading required package: AICcmodavg
+"
+"0","require(here)"
+"2","Loading required package: here
+"
+"2","here() starts at C:/Users/ianbb/OneDrive - University of Massachusetts/UMass (student)/Courses/ECO602/environmental_data
+"
