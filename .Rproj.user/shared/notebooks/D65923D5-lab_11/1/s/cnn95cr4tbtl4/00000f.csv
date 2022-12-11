@@ -1,0 +1,16 @@
+"0","require(""rgl"")"
+"2","Loading required package: rgl
+"
+"2","Warning: package ‘rgl’ was built under R version 4.2.2"
+"2","Registered S3 method overwritten by 'htmlwidgets':
+  method           from         
+  print.htmlwidget tools:rstudio
+"
+"0","persp3d("
+"0","  x = sim_n_effect_size$effect_size,"
+"0","  y = sim_n_effect_size$sample_size,"
+"0","  z = sim_n_effect_size$power,"
+"0","  xlab = ""beta"", ylab = ""n"", zlab = ""power"","
+"0","  col = 'lightblue',"
+"0","  theta = 30, phi = 30, expand = .75,"
+"0","  ticktype = 'detailed')"

@@ -1,0 +1,8 @@
+"0","# Hermit warbler presence/absence"
+"0","dat_all$HEWA_pres = dat_all$HEWA > 0"
+"0",""
+"0","# Create model fits"
+"0","fit_hewa_slope = glm(HEWA_pres ~ slope, data = dat_all, family = binomial)"
+"0","fit_hewa_ba_tot = glm(HEWA_pres ~ ba.tot, data = dat_all, family = binomial)"
+"0","fit_hewa_both_additive = glm(HEWA_pres ~ slope + ba.tot, data = dat_all, family = binomial)"
+"0","fit_hewa_both_interactive = glm(HEWA_pres ~ slope * ba.tot, data = dat_all, family = binomial)"

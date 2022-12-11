@@ -1,0 +1,8 @@
+"0","new_dat_all$pred_add = predict("
+"0","  fit_gcki_both_additive,"
+"0","  newdata = new_dat_all,"
+"0","  type = ""response"")"
+"0","new_dat_all$pred_int = predict("
+"0","  fit_gcki_both_interactive,"
+"0","  newdata = new_dat_all,"
+"0","  type = ""response"")"

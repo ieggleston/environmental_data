@@ -1,0 +1,6 @@
+"0",""
+"0","# add y=axis labels"
+"0","axis("
+"0","  2, "
+"0","  at = c(0, 1), "
+"0","  labels = c(sample_sizes[1], tail(sample_sizes, 1)))"

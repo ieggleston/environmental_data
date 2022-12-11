@@ -1,0 +1,4 @@
+"0","new_dat_all = expand.grid("
+"0","  ba.tot = ba.tot,"
+"0","  slope = slope)"
+"0","head(new_dat_all)"

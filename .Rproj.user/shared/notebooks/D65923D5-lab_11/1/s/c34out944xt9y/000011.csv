@@ -1,4 +1,0 @@
-"0","load(file = here::here(""data"", ""lab_11_n_effect_sizes.Rdata"")))
-"
-"2","Error: unexpected ')' in ""load(file = here::here(""data"", ""lab_11_n_effect_sizes.Rdata"")))""
-"

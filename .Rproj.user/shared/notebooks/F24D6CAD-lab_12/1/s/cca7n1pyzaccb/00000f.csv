@@ -1,0 +1,12 @@
+"0","require(here)"
+"2","Loading required package: here
+"
+"2","here() starts at C:/Users/ianbb/OneDrive - University of Massachusetts/UMass (student)/Courses/ECO602/environmental_data
+"
+"0","dat_bird = read.csv(here(""data"", ""bird.sub.csv""))"
+"0","dat_habitat = read.csv(here(""data"", ""hab.sub.csv""))"
+"0",""
+"0","birdhab = merge("
+"0","  dat_bird, "
+"0","  dat_habitat,"
+"0","  by = c(""basin"", ""sub""))"

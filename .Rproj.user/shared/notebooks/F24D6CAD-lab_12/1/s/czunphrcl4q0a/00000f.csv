@@ -1,0 +1,8 @@
+"0","# Hermit warbler presence/absence"
+"0","dat_all$GCKI_pres = dat_all$GCKI > 0"
+"0",""
+"0","# Create model fits"
+"0","fit_gcki_slope = glm(GCKI_pres ~ slope, data = dat_all, family = binomial)"
+"0","fit_gcki_ba_tot = glm(GCKI_pres ~ ba.tot, data = dat_all, family = binomial)"
+"0","fit_gcki_both_additive = glm(GCKI_pres ~ slope + ba.tot, data = dat_all, family = binomial)"
+"0","fit_gcki_both_interactive = glm(GCKI_pres ~ slope * ba.tot, data = dat_all, family = binomial)"

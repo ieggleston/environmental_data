@@ -1,0 +1,5 @@
+"0","linear_simulator = function (x, y_int, slope, st_dev)"
+"0","{"
+"0","  noise = rnorm(length(x), mean = 0, sd = st_dev)"
+"0","  return((y_int + (slope * x))+ noise)"
+"0","}"

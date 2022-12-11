@@ -1,0 +1,7 @@
+"0","par(mfrow = c(1, 2))"
+"0","contour("
+"0","  x = ba.tot, y = slope,"
+"0","  z = z_gcki_add,"
+"0","  xlab = ""Total Basal Area"","
+"0","  ylab = ""Percent Slope"","
+"0","  main = ""Additive"")"

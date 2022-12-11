@@ -1,0 +1,70 @@
+---
+title: "Models 2"
+output: html_document
+date: "2022-12-05"
+---
+
+```{r}
+require(palmerpenguins)
+```
+
+
+```{r}
+t.test(subset(penguins, species == "Gentoo")$flipper_length_mm)
+```
+
+```{r}
+t.test(
+  x = subset(penguins, species == "Gentoo")$flipper_length_mm,
+  mu = 218
+)
+```
+
+```{r}
+t.test(
+  x = subset(penguins, species == "Gentoo")$flipper_length_mm,
+  mu = 218,
+  alternative = "less"
+)
+```
+
+```{r}
+t.test(flipper_length_mm ~ species, data = subset(penguins, species != "Chinstrap"), alternative = "less")
+```
+
+```{r}
+penguins
+dat_chinstrap = subset(penguins, species == "Chinstrap")
+dat_chinstrap
+mean(dat_chinstrap$body_mass_g, na.rm = TRUE)
+dat_chinstrap_fem = subset(dat_chinstrap, sex == "female")
+dat_chinstrap_fem
+mean(dat_chinstrap_fem$body_mass_g, na.rm = TRUE)
+```
+```{r}
+aggregate(body_mass_g ~ species, data = penguins, FUN = function(x) shapiro.test(x)$p.value)
+
+```
+```{r}
+fit_species = lm(body_mass_g ~ species, data = penguins)
+summary(fit_species)
+anova(fit_species)
+fit_species = lm(body_mass_g ~ species, data = penguins)
+
+```
+
+```{r}
+
+boxplot(body_mass_g ~ sex * species, xlab = NULL, data = penguins, main = "Doubly-Conditional Boxplot", las =2,
+        names = c("Female\n Adelie", "Male\n Adelie", "Female\n Chinstrap", "Male\n Chinstrap", "Female\n Gentoo", "Male\n Gentoo") )
+```
+
+```{r}
+fit_both = lm(formula = body_mass_g ~ (species * sex),data = penguins)
+summary(fit_both)
+
+```
+```{r}
+
+```
+

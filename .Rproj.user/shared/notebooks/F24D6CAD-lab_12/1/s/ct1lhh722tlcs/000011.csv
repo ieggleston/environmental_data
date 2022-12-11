@@ -1,0 +1,2 @@
+"0",""
+"0","lines(hewa_predicted ~ slope, data = slope_newdata)"
