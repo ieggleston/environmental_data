@@ -10,4 +10,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 [Final Project: R Reference Guide](final_R_reference.html)
 
+[Final Project: Data Analysis](Part_2.html)
+
 Welcome to Ian's Page
