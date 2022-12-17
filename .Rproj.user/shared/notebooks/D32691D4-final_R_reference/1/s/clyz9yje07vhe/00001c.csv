@@ -1,0 +1,1 @@
+"0","hist(adelie$flipper_length_mm, main = ""Flipper Length for Adelie"", xlab = ""Flipper Length (mm)"")"

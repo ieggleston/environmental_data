@@ -1,0 +1,6 @@
+"0","chinstrap = subset(penguins, species ==""Chinstrap"")"
+"0","gentoo = subset(penguins, species ==""Gentoo"")"
+"0",""
+"0","par(mfrow = c(2,2))"
+"0",""
+"0","hist(penguins$flipper_length_mm, main= ""Flipper Length Among Three Species"", xlab = ""Flipper Length (mm)"")"

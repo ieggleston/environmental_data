@@ -1,0 +1,162 @@
+---
+title: "Final Part 2"
+output: html_document
+date: "2022-12-17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Final Part 2 {.tabset .tabset-pills}
+
+## Questions 1-4
+
+1. There is a slightly, positively curved relationship between body length and body mass. 
+
+2. The body mass histogram has a relatively normal distribution, while the body length is disproportionately skewed. The body mass is relatively symmetrical on both sides of the mean, indicating normality. The body length histogram does not have this same distribution. Normally distributed data is important because it shows an even spread of the body lengths and masses. This would be expected where there is a mean and not a disproportionate amount of long dolomys.
+
+3. The histograms seemed to show normality, however the Shapiro test rejected the null hypothesis for both body mass and body length therefore they are not normally distributed. 
+
+4.There seems to be a relationship between species for the body mass, where the data should be separated based on species. Sex has a difference in body mass for both species based on these boxplots.
+
+
+```{r, echo = FALSE}
+require(here)
+delo_dat = read.csv(here("data", "delomys.csv"))
+```
+
+```{r, echo = FALSE}
+summary(delo_dat$body_length)
+shapiro.test(delo_dat$body_length)
+summary(delo_dat$body_mass)
+shapiro.test(delo_dat$body_mass)
+```
+
+```{r, echo = FALSE}
+par(mfrow = c(2,3))
+plot(body_length ~ body_mass, data = delo_dat, xlab = "body mass (g)", ylab = "body length (mm)")
+hist(delo_dat$body_mass, xlab = "body mass (g)")
+hist(delo_dat$body_length, xlab = "body length (mm)")
+boxplot(body_mass ~ binomial, data = delo_dat, xlab = "species", ylab = "body mass")
+boxplot(body_mass ~ sex, data = delo_dat, xlab = "sex", ylab = "body mass")
+boxplot(body_mass ~ sex * binomial, data = delo_dat, ylab = "body mass", xlab = NULL, las = 2,
+        names = c("Female\n dorsalis", "Male\n dorsalis", "Female\n sublineatus", "Male\n sublineatus"))
+```
+
+## Questions 5-6
+
+5. The graphical tests of the residuals seemed to show they would be normally distributed. The Shapiro tests then denied that assumption because they all rejected the null hypothesis. 
+
+6. Fit2 was closer to not rejecting the null hypothesis, so it is more normally distributed than the others. Based on the results of the Shapiro Test, we can see deviations from the normality.
+
+
+```{r, echo = FALSE}
+fit1 = lm(delo_dat$body_length ~ delo_dat$body_mass)
+fit2 = lm(delo_dat$body_mass ~ delo_dat$sex)
+fit3 = lm(delo_dat$body_mass ~ delo_dat$binomial)
+fit4 = lm(delo_dat$body_mass ~ delo_dat$sex + delo_dat$binomial)
+fit5 = lm(delo_dat$body_mass ~ delo_dat$sex * delo_dat$binomial)
+```
+
+
+```{r}
+anova(fit1)
+anova(fit2)
+anova(fit3)
+anova(fit4)
+anova(fit5)
+```
+
+```{r}
+par(mfrow = c(2,3))
+hist(fit1$residuals, xlab = "residuals")
+hist(fit2$residuals, xlab = "residuals")
+hist(fit3$residuals, xlab = "residuals")
+hist(fit4$residuals, xlab = "residuals")
+hist(fit5$residuals, xlab = "residuals")
+```
+
+
+```{r}
+shapiro.test(fit1$residuals)
+shapiro.test(fit2$residuals)
+shapiro.test(fit3$residuals)
+shapiro.test(fit4$residuals)
+shapiro.test(fit5$residuals)
+```
+
+```{r}
+knitr::kable(coef(summary(fit1)))
+knitr::kable(coef(summary(fit2)))
+knitr::kable(coef(summary(fit3)))
+knitr::kable(coef(summary(fit4)))
+knitr::kable(coef(summary(fit5)))
+```
+
+
+
+
+
+
+## 7-9 
+
+7. The magnitude is 0.8754988
+
+8. 163.67 mm
+
+9. 76.12 mm
+
+```{r}
+knitr::kable(coef(summary(fit1)))
+```
+
+
+## 10-13
+
+10. The base level is female.
+
+11. The base level is dorsalis.
+
+12. The male sex is heavier because the positive slope means it will increase from the starting female mass.
+
+13. The dorsalis species is larger because the slope of -7 means sublineatus will always be smaller.
+
+
+```{r}
+knitr::kable(coef(summary(fit2)))
+knitr::kable(coef(summary(fit3)))
+```
+
+
+## 14-16
+
+14. They are not significant predictors of body mass because the Pr(>|t|) shows the predictability power of the model. For both of these it was 0. This can be seen if we use a simple boxplot of the two models, there will not appear to be any significance between them. 
+
+15. There is not a significant interaction between either sex or species for body mass, in the fit 2 and fit 3 models.
+
+16. There is some significant interaction in the final model from fit5, between the multiplicative effect of species and sex. When the species and sex are all separated out we can see the significance among them. The ANOVA tables show this with the P value of Fit5 being greater than 0.95, indicating a signficant interaction between sex and species.
+
+## 17-18
+
+17. Models 4 and 5 have the lowest two AIC scores. 
+
+18. I would choose Fit5 as my model because the AIC scores are similar, but Fit 5 had better predictability power built within. This is because the multiplicative model shows interactions among the groups instead of spreading them out. The additive model does not account for the interaction of sex within species like the multiplicative nature of fit5. 
+
+
+```{r}
+AIC(
+  fit2,
+  fit3,
+  fit4,
+  fit5
+)
+```
+
+
+```{r}
+knitr::kable(coef(summary(fit4)))
+knitr::kable(coef(summary(fit5)))
+```
+
+
+

@@ -1,0 +1,2 @@
+"0","char_vec2 = c(""a"", ""b"", ""c"", ""d"", ""e"")"
+"0","data.frame(x = num_vec, y = char_vec2)"

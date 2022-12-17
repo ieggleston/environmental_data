@@ -1,0 +1,5 @@
+"0","fit1 = lm(delo_dat$body_length ~ delo_dat$body_mass)"
+"0","fit2 = lm(delo_dat$body_mass ~ delo_dat$sex)"
+"0","fit3 = lm(delo_dat$body_mass ~ delo_dat$binomial)"
+"0","fit4 = lm(delo_dat$body_mass ~ delo_dat$sex + delo_dat$binomial)"
+"0","fit5 = lm(delo_dat$body_mass ~ delo_dat$sex * delo_dat$binomial)"

@@ -1,0 +1,257 @@
+---
+title: "final_R_reference"
+output: html_document
+date: "2022-12-11"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R Reference Guide {.tabset .tabset-pills}
+
+
+
+
+## Loading Data and Packages
+
+The function library() loads a package of the designated name within the parentheses. The package has to be downloaded before being called.
+
+```{r}
+library(palmerpenguins)
+```
+
+We can view the dataframe made from palmerpenguins by calling the penguin dataset.
+
+```{r}
+penguins
+```
+
+
+The function require() also loads a package of whatever name is designated in the parentheses, however require() is better for use within other functions.
+
+```{r}
+require(here)
+```
+
+
+Using the gingko data, we will demonstrate the use of here() and read.csv() as a different way of creating the data.frame. The here() funciton allows us to specify the file location and name for R to find. The read.csv will convert the csv file to a data.frame in R.
+
+```{r}
+ginkgo = read.csv(here("data", "ginkgo_data_2021.csv"))
+```
+
+We can view the first 6 lines of the ginkgo data by using the head() function.
+
+```{r}
+head(ginkgo)
+```
+
+
+## Data Structures
+
+There are a few functions useful for building data sets and deciding the structural design. 
+
+The function c() combines or concatenates its arguments into a vector (a 1-dimensional data structure consisting of 1 or more elements).
+
+All of the elements must be of the same type.
+I can’t combine character and numeric types in the same call to c()
+Here’s two examples using numeric and character data types:
+
+```{r}
+num_vec = c(1, 4, 8, 9, 13)
+
+char_vec = c("a", "fish", "data is cool")
+```
+
+They can then be called using the vectors' names.
+```{r}
+num_vec
+char_vec
+```
+
+
+length() is a useful function for finding out the size of a vector or it can be used to set the length of the vector. It tells you the total number of variables in a row or column or can be used to restrict it.
+
+We can see it used with the vectors from before to see the length is different between them
+
+```{r}
+length(num_vec)
+length(char_vec)
+```
+
+
+matrix() will build a matrix from a defined data.frame or vector. The matrix() function then allows you to define the number of columns or rows within the matrix.
+
+We can use a new vector of numbers to build the matrix below by either row or column.
+
+```{r}
+num_vec2 = c(1:6)
+mat_1 = matrix(num_vec2, ncol = 2)
+mat_1
+
+mat_2 = matrix(num_vec2, nrow = 2)
+mat_2
+```
+
+
+data.frame() is a function that can be used to matrix of different variable types such as characters and numbers. It has more versatility than the matrix function, which needs the variables to be of the same type.
+
+```{r}
+char_vec2 = c("a", "b", "c", "d", "e")
+data.frame(x = num_vec, y = char_vec2)
+```
+
+
+The previously made ginkgo data.frame will now be used to demonstrate the nrow(), ncol(), and dim() functions. nrow() and ncol() tell you how many rows or columns are in the data.frame in the parentheses. dim gives both dimensions.
+```{r}
+nrow(ginkgo)
+ncol(ginkgo)
+dim(ginkgo)
+```
+
+
+
+## Subsetting
+
+There are numerous ways to subset the data and extract the information needed. This also allows one to resample and compare different variables within a dataset. One of the easiest ways is using the $ operator. The $ specifies a column of data to isolate from the whole dataset. 
+
+```{r}
+ginkgo$site_id
+```
+
+
+The [] are another useful way of subsetting. They can be used to specify a specific variable in a column x row format. It is also useful for specifying the 
+
+```{r}
+ginkgo[1,]
+```
+```{r}
+ginkgo[2,3]
+```
+
+```{r}
+ginkgo[, 3]
+```
+
+The subset() function can be used to specify parts of a larger dataset that should be extrapolated from the rest. You can either exclude or include based on Boolean commands.
+
+Below I will subset the species of Adelie penguins from the other two species by requesting only datapoints with Adelie as the species type. 
+
+```{r}
+adelie = subset(penguins, species == "Adelie")
+adelie
+```
+
+
+## Numerical Data Exploration
+
+Continuing with the penguin data, we can look closer at the data structure to understand different parts of it.
+
+The summary() function provides a brief look at the whole dataset. It provides a count of each type of main variable and statistical data for the other columns. It is a crude way of extracting data though, because it does not separate based on species and considers the columns as one. You can see that the body_mass_g column is averaged together, however we know that there is a significant difference among the species. 
+
+```{r}
+summary(penguins)
+```
+
+We will continue with the subsetted Adelie penguin data to use the mean() and sd() functions. The mean() function will provide the mean of data specified. In this case, we will be looking at the mean of Adelie penguins body mass as well as the standard deviation. This tells us what the average body mass is and also shows how varied the data was within the group. The na.rm command tells R to remove any NA values, which could be problematic with these functions. 
+
+```{r}
+mean(adelie$body_mass_g, na.rm = TRUE)
+sd(adelie$body_mass_g, na.rm = TRUE)
+```
+
+
+## Graphical Data Exploration
+
+Here we will create a scatterplot using the plot() function. This has multiple commands built in that allow you to change dimensions, labels, point types, and more. The code below will demonstrate how these commands can be used to customize a scatterplot (or any other plot with similar commands).
+
+```{r}
+plot(ginkgo$max_width ~ ginkgo$max_depth, 
+     xlab = "Max petiole depth", ylab = "Max leaf width", main = 
+       "Ginkgo Petiole Depth vs. Leaf Width", 
+     ylim = c(0, 150), xlim = c(20,150), 
+     col = "steelblue", pch = 4, cex = 0.5
+     )
+```
+
+A histogram for penguin flipper lengths will now be built using the hist() function. The breaks argument lets us decide what the range of data is and the intervals it is split into.
+
+```{r}
+summary(penguins$flipper_length_mm)
+hist(penguins$flipper_length_mm, breaks = 170:235 )
+```
+
+The boxplot() function creates boxplots for a quick qualitative analysis. Below is an example for petiole length from the gingko data.
+
+```{r}
+boxplot(ginkgo$petiole_length, main = 
+          "Boxplot of Petiole Length")
+```
+
+We can also make more complicated ones that have conditional variables to show the results of a survey. We can see an example of this below with the seed_present column from the ginkgo data. 
+
+```{r}
+ginkgo
+boxplot(site_id~ seeds_present, data = ginkgo)
+```
+
+We can put multiple plots together in one figure using the par() function. Combined with mfrow =, we can specify the structure of the image. Using mforw = c(2,2), creates a 2x2 image of the four histograms. The different histograms are made from the penguin data, comparing the difference in flipper lengths among all penguins, then within each species.
+
+```{r}
+chinstrap = subset(penguins, species =="Chinstrap")
+gentoo = subset(penguins, species =="Gentoo")
+
+par(mfrow = c(2,2))
+
+hist(penguins$flipper_length_mm, main= "Flipper Length Among Three Species", xlab = "Flipper Length (mm)")
+hist(adelie$flipper_length_mm, main = "Flipper Length for Adelie", xlab = "Flipper Length (mm)")
+hist(chinstrap$flipper_length_mm, main = "Flipper Length for Chinstrap", xlab = "Flipper Length (mm)")
+hist(gentoo$flipper_length_mm, main = "Flipper Length for Gentoo", xlab = "Flipper Length (mm)")
+
+```
+
+
+
+## Distribution Functions
+
+R has a few distribution functions that allow us to simulate error of a model. The binomial and normal distributions are two useful ones for simulating data. They are similar in their structure, however the normal distribution has an infinite number of points. The binomial model has a discrete amount of and is better for smaller data sets. When the number of points gets too large, the binomial mimics the normal distribution.
+
+
+The density distribution asks what the probability of observing a value of x is. This can be seen with the increasing series of 40-45 where the likelihood of observing that value increases closer to the mean.
+```{r}
+dnorm(c(40:45), mean = 50, sd = 20)
+```
+
+
+pnorm() asks the question, what is the probability x is less than or equal to the mean with the set sd. Below shows the example with the same values of above demosntrating the inclusion of values less than x.
+```{r}
+pnorm(c(40:45), mean = 50, sd = 20)
+```
+
+qnorm() asks what percentile the x value is observed at, given the sd.
+
+```{r}
+qnorm(c(40:45), mean = 50, sd = 20)
+
+```
+
+dbinom()
+
+```{r}
+dbinom(5, 10, 0.25)
+```
+
+pbinom()
+
+```{r}
+pbinom(5, 10, 0.25)
+```
+
+
+qbinom()
+
+```{r}
+qbinom(5, 10, 0.25)
+```
+

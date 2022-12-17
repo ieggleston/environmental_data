@@ -1,0 +1,2 @@
+"0","boxplot(body_mass ~ sex * binomial, data = delo_dat, xlab = NULL, las = 2,"
+"0","        names = c(""Female\n dorsalis"", ""Male\n dorsalis"", ""Female\n sublineatus"", ""Male\n sublineatus""))"
